@@ -1,12 +1,9 @@
-'use strict';
-
-import Boom from 'boom';
-
-import BooksService from '../../services/books/books-service';
+import Boom from '@hapi/boom';
+import BooksService from '../../services/books/books-service.js';
 
 function getBook(request, h) {
-  const books = JSON.parse(BooksService.getAllBooks(request)).books;
-  const book = books.find(b => b.slug === request.params.slug);
+  const booksList = BooksService.getAllBooks(request);
+  const book = booksList.books.find(b => b.slug === request.params.slug);
   if (!book) {
     throw Boom.notFound();
   }
@@ -20,6 +17,6 @@ function getBooksList(request, h) {
 }
 
 export default {
-  getBook: getBook,
-  getBooksList: getBooksList,
+  getBook,
+  getBooksList,
 };

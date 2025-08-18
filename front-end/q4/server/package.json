@@ -2,18 +2,16 @@
   "name": "@reedsy/fe-challenge-server",
   "private": true,
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "server": "node src/index"
+    "start": "node src/server.js",
+    "dev": "node src/server.js"
   },
-  "main": "index.js",
+  "main": "src/server.js",
   "license": "MIT",
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "boom": "^7.3.0",
-    "hapi": "^18.1.0",
-    "inert": "^5.1.3"
+  "dependencies": {
+    "@hapi/hapi": "^21.3.2",
+    "@hapi/inert": "^7.1.0",
+    "@hapi/boom": "^10.0.1"
   }
 }

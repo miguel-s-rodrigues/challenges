@@ -1,17 +1,18 @@
-'use strict';
+import Hapi from '@hapi/hapi';
+import Inert from '@hapi/inert';
+import routes from './routes/index.js';
 
-import Hapi from 'hapi';
-import Inert from 'inert';
-
-import routes from './routes';
-
-const server = new Hapi.Server({
-  host: 'localhost',
+const server = Hapi.server({
+  host: '127.0.0.1',
   port: 3000,
-  routes: { cors: true },
+  routes: { 
+    cors: {
+      origin: ['*']
+    }
+  }
 });
 
-const startServer = async() => {
+const startServer = async () => {
   await server.register(Inert);
 
   routes.forEach((route) => {
@@ -20,11 +21,12 @@ const startServer = async() => {
 
   try {
     await server.start();
-    console.info(`Server started at ${ server.info.uri }`);
+    console.log(`Server started at ${server.info.uri}`);
   } catch (err) {
     console.error(err);
+    process.exit(1);
   }
-}
+};
 
 process.on('unhandledRejection', (err) => {
   console.error(err);

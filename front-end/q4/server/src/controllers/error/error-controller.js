@@ -1,11 +1,9 @@
-'use strict';
-
-import Boom from 'boom';
+import Boom from '@hapi/boom';
 
 function notFound() {
   throw Boom.notFound();
 }
 
 export default {
-  notFound: notFound,
+  notFound,
 };

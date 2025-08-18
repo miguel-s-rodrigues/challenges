@@ -1,8 +1,6 @@
-'use strict';
-
-import BooksController from '../controllers/books/books-controller';
-import ErrorController from '../controllers/error/error-controller';
-import ImagesController from '../controllers/images/images-controller';
+import BooksController from '../controllers/books/books-controller.js';
+import ErrorController from '../controllers/error/error-controller.js';
+import ImagesController from '../controllers/images/images-controller.js';
 
 const routes = [
   {
@@ -22,7 +20,7 @@ const routes = [
   },
   {
     method: 'GET',
-    path: '/*',
+    path: '/{any*}',
     handler: ErrorController.notFound,
   },
 ];
