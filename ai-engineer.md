@@ -27,7 +27,9 @@ agents:
 [data.csv](ai/data.csv) contains an example of what the agent's input data
 looks like.
 
-Explain your design decisions.
+Explain your design decisions and include instructions on how to run the code.
+
+If you want to make calls to an external provider, you can use Anthropic, OpenAI or Gemini models.
 
 ### Question 2
 
